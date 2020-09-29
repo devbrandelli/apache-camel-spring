@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  sftp:
+    image: atmoz/sftp
+    volumes:
+    - ./docker/volume/upload:/home/foo/upload
+    ports:
+    - "2222:22"
+    command: felipebrandelli:password:::upload
+
+  mongodb:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: camel
+      MONGO_INITDB_ROOT_PASSWORD: apache
+    ports:
+    - 27017:27017
